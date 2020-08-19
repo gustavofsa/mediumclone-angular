@@ -7,11 +7,6 @@ import { RegisterRequestInterface } from './../../types/registerRequest.interfac
 import { registerAction } from '../../store/actions/register.action';
 import { isSubmittingSelector } from '../../store/selectors';
 
-interface FormValueInterface {
-  email: string;
-  username: string;
-  password: string;
-}
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
