@@ -11,6 +11,7 @@ import { RegisterEffect } from './store/effects/register.effect';
 import { RegisterComponent } from './components/register/register.component';
 import { reducers } from './store/reducers';
 import { AuthService } from './services/auth.service';
+import { PersistenceService } from './../shared/services/persistence.service';
 
 const routes = [
   {
@@ -29,6 +30,6 @@ const routes = [
     EffectsModule.forFeature([RegisterEffect]),
     BackendErrorMessagesModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, PersistenceService],
 })
 export class AuthModule {}
