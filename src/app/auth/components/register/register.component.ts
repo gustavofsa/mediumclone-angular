@@ -3,11 +3,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { registerAction } from '../../store/actions';
+import { RegisterRequestInterface } from './../../types/registerRequest.interface';
+import { registerAction } from '../../store/actions/register.action';
 import { isSubmittingSelector } from '../../store/selectors';
-import { AuthService } from '../../services/auth.service';
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 
+interface FormValueInterface {
+  email: string;
+  username: string;
+  password: string;
+}
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,11 +21,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   isSubmitting$: Observable<boolean>;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private store: Store,
-    private authService: AuthService
-  ) {}
+  constructor(private formBuilder: FormBuilder, private store: Store) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -41,11 +41,10 @@ export class RegisterComponent implements OnInit {
   }
 
   handleSubmit(): void {
-    this.store.dispatch(registerAction(this.form.value));
-    this.authService
-      .register(this.form.value)
-      .subscribe((currentUser: CurrentUserInterface) =>
-        console.log('Current User:', currentUser)
-      );
+    console.log('submit:', this.form.value);
+    const request: RegisterRequestInterface = {
+      user: this.form.value,
+    };
+    this.store.dispatch(registerAction({ request }));
   }
 }
