@@ -12,7 +12,7 @@ import {
 } from '../../store/selectors';
 
 @Component({
-  selector: 'app-register',
+  selector: 'mc-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
@@ -42,7 +42,6 @@ export class RegisterComponent implements OnInit {
   }
 
   handleSubmit(): void {
-    console.log('submit:', this.form.value);
     const request: RegisterRequestInterface = {
       user: this.form.value,
     };
