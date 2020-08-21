@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AuthModule } from './auth/auth.module';
+import { TopBarModule } from './shared/modules/TopBar/TopBar.module';
 
 import { environment } from '../environments/environment';
 
@@ -20,6 +21,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     AppRoutingModule,
     AuthModule,
+    TopBarModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
