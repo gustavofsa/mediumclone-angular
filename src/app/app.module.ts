@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -11,6 +11,9 @@ import { AppComponent } from './app.component';
 
 import { AuthModule } from './auth/auth.module';
 import { TopBarModule } from './shared/modules/TopBar/TopBar.module';
+
+import { AuthInterceptor } from './shared/services/authinterceptor.service';
+import { PersistenceService } from './shared/services/persistence.service';
 
 import { environment } from '../environments/environment';
 
@@ -29,7 +32,14 @@ import { environment } from '../environments/environment';
     }),
     EffectsModule.forRoot([]),
   ],
-  providers: [],
+  providers: [
+    PersistenceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
