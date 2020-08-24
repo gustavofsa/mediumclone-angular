@@ -1,10 +1,6 @@
-<div *ngIf="isLoading$ | async">
-  Loading...
-</div>
+<mc-loading *ngIf="isLoading$ | async"></mc-loading>
 
-<div *ngIf="error$ | async">
-  Some error happend...
-</div>
+<mc-error-message *ngIf="error$ | async"></mc-error-message>
 
 <div *ngIf="feed$ | async">
   <div
