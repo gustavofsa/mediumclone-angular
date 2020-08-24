@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { GetFeedResponseInterface } from '../types/getFeedResponse.interface';
-import { environment } from './../../../../../environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Injectable()
 export class FeedService {
