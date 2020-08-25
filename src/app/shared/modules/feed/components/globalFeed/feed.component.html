@@ -28,5 +28,10 @@
       Here list of tags
     </a>
   </div>
-  Pagination
+  <mc-pagination
+    [total]="(feed$ | async)?.articlesCount"
+    [limit]="limit"
+    [url]="baseUrl"
+    [currentPage]="currentPage"
+  ></mc-pagination>
 </div>

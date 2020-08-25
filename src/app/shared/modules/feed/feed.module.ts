@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
+import { PaginationModule } from './../pagination/pagination.module';
 import { LoadingModule } from './../loading/loading.module';
 import { ErrorMessageModule } from '../errorMessage/errorMessage.module';
 import { FeedComponent } from './components/globalFeed/feed.component';
@@ -19,6 +20,7 @@ import { reducers } from './store/reducers';
     RouterModule,
     ErrorMessageModule,
     LoadingModule,
+    PaginationModule,
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],
