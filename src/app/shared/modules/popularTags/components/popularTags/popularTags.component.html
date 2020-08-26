@@ -1,0 +1,21 @@
+<div *ngIf="isLoading$ | async">
+  <p>Loading...</p>
+</div>
+
+<div *ngIf="error$ | async">
+  <p>Error to get popular tags</p>
+</div>
+
+<div class="sidebar">
+  <p>Popular Tags</p>
+  <div *ngIf="popularTags$ | async"></div>
+  <div class="tag-list">
+    <a
+      href=""
+      class="tag-default tag-pill ng-binding ng-scope"
+      *ngFor="let popularTag of popularTags$ | async"
+    >
+      {{ popularTag }}
+    </a>
+  </div>
+</div>
