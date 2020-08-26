@@ -1,0 +1,24 @@
+<div class="feed-toggle">
+  <ul class="nav nav-pills outline-active">
+    <li class="nav-item" *ngIf="isLoggedIn$ | async">
+      <a [routerLink]="['/feed']" class="nav-link" routerLinkActive="active">
+        Your Feed
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/']" class="nav-link" routerLinkActive="active">
+        Global Feed
+      </a>
+    </li>
+    <li class="nav-item" *ngIf="tagNameProps">
+      <a
+        [routerLink]="['/tag', tagNameProps]"
+        class="nav-link"
+        routerLinkActive="active"
+      >
+        <i class="ion-pound"></i>
+        {{ tagNameProps }}
+      </a>
+    </li>
+  </ul>
+</div>
