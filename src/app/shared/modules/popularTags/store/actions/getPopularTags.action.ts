@@ -7,9 +7,8 @@ export const getPopularTagsAction = createAction(ActionTypes.GET_POPULAR_TAGS);
 
 export const getPopularTagsSuccessAction = createAction(
   ActionTypes.GET_POPULAR_TAGS_SUCCESS,
-  props<{ tags: PopularTagType[] }>()
+  props<{ popularTags: PopularTagType[] }>()
 );
 export const getPopularTagsFailureAction = createAction(
-  ActionTypes.GET_POPULAR_TAGSFAI_FAILURE,
-  props<{ error: string | null }>()
+  ActionTypes.GET_POPULAR_TAGSFAI_FAILURE
 );

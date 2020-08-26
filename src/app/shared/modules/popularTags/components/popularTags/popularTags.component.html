@@ -1,18 +1,15 @@
-<div *ngIf="isLoading$ | async">
-  <p>Loading...</p>
-</div>
-
-<div *ngIf="error$ | async">
-  <p>Error to get popular tags</p>
-</div>
+<mc-error *ngIf="error$ | async"></mc-error>
 
 <div class="sidebar">
   <p>Popular Tags</p>
+
+  <mc-loading *ngIf="isLoading$ | async"></mc-loading>
+
   <div *ngIf="popularTags$ | async"></div>
   <div class="tag-list">
     <a
-      href=""
-      class="tag-default tag-pill ng-binding ng-scope"
+      [routerLink]="['/tags', popularTag]"
+      class="tag-default tag-pill"
       *ngFor="let popularTag of popularTags$ | async"
     >
       {{ popularTag }}

@@ -26,7 +26,7 @@ const popularTagsReducer = createReducer(
     (state, action): PopularTagsStateInterface => ({
       ...state,
       isLoading: false,
-      data: action.tags,
+      data: action.popularTags,
     })
   ),
   on(
@@ -34,7 +34,6 @@ const popularTagsReducer = createReducer(
     (state, action): PopularTagsStateInterface => ({
       ...state,
       isLoading: false,
-      error: action.error,
     })
   )
 );
