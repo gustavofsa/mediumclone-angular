@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { TopBarModule } from './shared/modules/TopBar/TopBar.module';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
+import { YourFeedModule } from './yourFeed/yourFeed.module';
+import { TagFeedModule } from './tagFeed/tagFeed.module';
 
 import { AuthInterceptor } from './shared/services/authinterceptor.service';
 import { PersistenceService } from './shared/services/persistence.service';
@@ -35,6 +37,8 @@ import { environment } from '../environments/environment';
     }),
     EffectsModule.forRoot([]),
     GlobalFeedModule,
+    YourFeedModule,
+    TagFeedModule,
   ],
   providers: [
     PersistenceService,
