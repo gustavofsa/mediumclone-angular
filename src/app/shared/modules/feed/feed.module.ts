@@ -8,7 +8,7 @@ import { TagListModule } from './../tagList/tagList.module';
 import { PaginationModule } from './../pagination/pagination.module';
 import { LoadingModule } from './../loading/loading.module';
 import { ErrorMessageModule } from '../errorMessage/errorMessage.module';
-import { FeedComponent } from './components/globalFeed/feed.component';
+import { FeedComponent } from './components/feed/feed.component';
 import { FeedService } from './services/feed.service';
 import { GetFeedEffect } from './store/effects/getFeed.effect';
 import { reducers } from './store/reducers';
