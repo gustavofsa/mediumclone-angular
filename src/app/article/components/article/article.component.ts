@@ -44,10 +44,10 @@ export class ArticleComponent implements OnInit, OnDestroy {
     this.slug = this.route.snapshot.paramMap.get('slug');
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
-    this.isAuthor$ = combineLatest(
+    this.isAuthor$ = combineLatest([
       this.store.pipe(select(articleSelector)),
-      this.store.pipe(select(currentUserSelector))
-    ).pipe(
+      this.store.pipe(select(currentUserSelector)),
+    ]).pipe(
       map(
         ([article, currentUser]: [
           ArticleInterface | null,
