@@ -5,4 +5,15 @@ import { Component } from '@angular/core';
   templateUrl: './createArticle.component.html',
   styleUrls: ['./createArticle.component.scss'],
 })
-export class CreateArticleComponent {}
+export class CreateArticleComponent {
+  initialValues = {
+    title: 'Foo',
+    description: 'Bar',
+    body: 'Baz',
+    tagList: ['213'],
+  };
+
+  onSubmit(res: any) {
+    console.log('res', res);
+  }
+}
