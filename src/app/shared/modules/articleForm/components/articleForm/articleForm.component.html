@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-10 offset-md-1 col-xs-12">
         <mc-backend-error-message
-          *ngI="errorsProps"
+          *ngIf="errorsProps"
           [backendErrors]="errorsProps"
         ></mc-backend-error-message>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
