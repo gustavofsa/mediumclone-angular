@@ -17,6 +17,7 @@ import { YourFeedModule } from './yourFeed/yourFeed.module';
 import { TagFeedModule } from './tagFeed/tagFeed.module';
 import { ArticleModule } from './article/article.module';
 import { CreateArticleModule } from './createArticle/createArticle.module';
+import { EditArticleModule } from './editArticle/editArticle.module';
 
 import { AuthInterceptor } from './shared/services/authinterceptor.service';
 import { PersistenceService } from './shared/services/persistence.service';
@@ -43,6 +44,7 @@ import { environment } from '../environments/environment';
     TagFeedModule,
     CreateArticleModule,
     ArticleModule,
+    EditArticleModule,
   ],
   providers: [
     PersistenceService,
