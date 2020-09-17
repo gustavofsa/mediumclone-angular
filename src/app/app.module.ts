@@ -31,7 +31,6 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     AppRoutingModule,
     AuthModule,
-    TopBarModule,
     StoreModule.forRoot({ router: routerReducer }),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
@@ -39,6 +38,7 @@ import { environment } from '../environments/environment';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot([]),
+    TopBarModule,
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,

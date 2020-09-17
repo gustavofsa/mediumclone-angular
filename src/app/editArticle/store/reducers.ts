@@ -25,24 +25,20 @@ const editArticleReducer = createReducer(
     updateArticleAction,
     (state): EditArticleStateInterface => ({
       ...state,
-      isLoading: true,
       isSubmitting: true,
     })
   ),
   on(
     updateArticleSuccessAction,
-    (state, action): EditArticleStateInterface => ({
+    (state): EditArticleStateInterface => ({
       ...state,
-      isLoading: false,
       isSubmitting: false,
-      article: action.article,
     })
   ),
   on(
     updateArticleFailureAction,
     (state, action): EditArticleStateInterface => ({
       ...state,
-      isLoading: false,
       isSubmitting: false,
       validationErrors: action.errors,
     })

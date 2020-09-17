@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { select, Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
-import { getArticleAction } from './../../store/actions/getArticle.action';
-import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
+import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface';
+import { ArticleInterface } from 'src/app/shared/types/article.interface';
+import { getArticleAction } from '../../store/actions/getArticle.action';
+import { updateArticleAction } from 'src/app/editArticle/store/actions/updateArticle.action';
 import {
-  isLoadingSelector,
   isSubmittingSelector,
   validationErrorsSelector,
+  isLoadingSelector,
+  articleSelector,
 } from '../../store/selectors';
-import { articleSelector } from 'src/app/article/store/selectors';
-import { filter, map } from 'rxjs/operators';
-import { ArticleInterface } from 'src/app/shared/types/article.interface';
-import { updateArticleAction } from '../../store/actions/updateArticle.action';
 
 @Component({
   selector: 'mc-edit-article',
@@ -22,12 +22,11 @@ import { updateArticleAction } from '../../store/actions/updateArticle.action';
   styleUrls: ['./editArticle.component.scss'],
 })
 export class EditArticleComponent implements OnInit {
-  slug: string;
-
   initialValues$: Observable<ArticleInputInterface>;
-  isLoading$: Observable<boolean>;
   isSubmitting$: Observable<boolean>;
+  isLoading$: Observable<boolean>;
   backendErrors$: Observable<BackendErrorsInterface | null>;
+  slug: string;
 
   constructor(private store: Store, private route: ActivatedRoute) {}
 
