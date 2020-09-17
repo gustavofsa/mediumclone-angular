@@ -2,10 +2,10 @@
   <div class="container page">
     <div class="row">
       <div class="col-md-10 offset-md-1 col-xs-12">
-        <mc-backend-error-message
+        <mc-backend-error-messages
           *ngIf="errorsProps"
           [backendErrors]="errorsProps"
-        ></mc-backend-error-message>
+        ></mc-backend-error-messages>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <fieldset>
             <fieldset class="form-group">
@@ -44,7 +44,7 @@
               <button
                 type="submit"
                 class="btn btn-lg pull-xs-right btn-primary"
-                [disabled]="form.invalid || isSubmittingProps"
+                [disabled]="isSubmittingProps"
               >
                 Publish article
               </button>
