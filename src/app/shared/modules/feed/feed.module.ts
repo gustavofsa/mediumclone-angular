@@ -8,6 +8,7 @@ import { TagListModule } from './../tagList/tagList.module';
 import { PaginationModule } from './../pagination/pagination.module';
 import { LoadingModule } from './../loading/loading.module';
 import { ErrorMessageModule } from '../errorMessage/errorMessage.module';
+import { AddToFavoritesModule } from '../addToFavorites/addToFavorites.module';
 import { FeedComponent } from './components/feed/feed.component';
 import { FeedService } from './services/feed.service';
 import { GetFeedEffect } from './store/effects/getFeed.effect';
@@ -23,6 +24,7 @@ import { reducers } from './store/reducers';
     LoadingModule,
     PaginationModule,
     TagListModule,
+    AddToFavoritesModule,
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],
