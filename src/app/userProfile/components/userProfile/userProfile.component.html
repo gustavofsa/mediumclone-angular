@@ -1,1 +1,65 @@
-<h1>PROFILE</h1>
+<div class="profile-page" *ngIf="userProfile">
+  <div class="user-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 offset-md-1">
+          <img
+            class="user-img"
+            [src]="userProfile.image"
+            alt="userProfile.username avatar"
+          />
+          <h4>{{ userProfile.username }}</h4>
+          <p>{{ userProfile.bio }}</p>
+          <div class="">
+            FOLLOW USER BUTTON
+            <a
+              *ngIf="isCurrentUserProfile$ | async"
+              class="btn btn-sm btn-outline-secondary action-btn"
+              [routerLink]="['/settings']"
+            >
+              <i class="ion-gear-a"></i>
+              &nbsp;Edit profile settings</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 offset-md-1">
+        <div class="articles-toggle">
+          <ul class="nav nav-pills outline-active">
+            <li class="nav-item">
+              <!-- We need this hack because angular doesnt undrestande route change -->
+              <!-- https://github.com/angular/angular/issues/18469 -->
+              <a
+                [routerLink]="['/profiles', userProfile.username]"
+                class="nav-link"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{
+                  exact: true,
+                  __change_detection_hack__: userProfile.username
+                }"
+                >My Posts</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['/profiles', userProfile.username, 'favorites']"
+                class="nav-link"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{
+                  exact: true,
+                  __change_detection_hack__: userProfile.username
+                }"
+                >Favorite Posts</a
+              >
+            </li>
+          </ul>
+        </div>
+        <mc-feed [apiUrl]="getApiUrl()"></mc-feed>
+      </div>
+    </div>
+  </div>
+</div>

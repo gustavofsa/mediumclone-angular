@@ -1,15 +1,15 @@
-import { UserProfileService } from './../../services/userProfile.service';
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { switchMap, catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { switchMap, catchError, map } from 'rxjs/operators';
 
+import { UserProfileService } from '../../services/userProfile.service';
+import { UserProfileInterface } from '../../types/userProfile.interface';
 import {
   getUserProfileAction,
   getUserProfileSuccessAction,
   getUserProfileFailureAction,
-} from '../actions/userProfile.action';
-import { UserProfileInterface } from '../../types/userProfile.interface';
+} from '../actions/getUserProfile.action';
 
 @Injectable()
 export class GetUserProfileEffect {
